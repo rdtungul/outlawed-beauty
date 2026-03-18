@@ -5,10 +5,39 @@ import { BOOKING_URL } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Services',
   description:
-    'Browse all services at Outlawed on Main — lash extensions, waxing, brow lamination, tinting, and more. Book online 24/7.',
+    'Browse all services at Outlawed on Main — hair color, cuts, extensions, lash services, waxing, brow lamination, and more. Book online 24/7.',
 }
 
 const serviceCategories = [
+  {
+    title: 'Hair Color',
+    services: [
+      { name: 'One Color Roots to Ends', price: '$130', duration: '90 min', note: 'Single-process color from roots through ends' },
+      { name: 'Bleach & Tone', price: '$150', duration: '105 min', note: 'Full root bleach service' },
+      { name: 'Partial Highlight', price: '$180', duration: '105 min', note: 'Focused highlighting through the hairline and crown' },
+      { name: 'Full Highlight', price: '$215', duration: '150 min', note: 'Full head highlighting with toner/gloss' },
+      { name: 'Root Color & Partial Foil', price: '$225', duration: '120 min', note: 'Root coverage with partial highlights' },
+      { name: 'Root Color & Full Foil', price: '$275', duration: '180 min', note: 'Combined root coverage with complete highlighting' },
+      { name: 'Full Blonding Service', price: '$275', duration: '180 min', note: 'All-over blonde; may require bond builder' },
+    ],
+  },
+  {
+    title: 'Cuts & Styling',
+    services: [
+      { name: "Woman's Haircut", price: '$50', duration: '45 min', note: 'Precision cut customized to your lifestyle' },
+      { name: 'Kids Cut', price: '$30', duration: '30 min' },
+      { name: 'Blow Out', price: '$60', duration: '40 min' },
+      { name: 'Formal Updo', price: '$135', duration: '60 min', note: 'Half or full updos' },
+    ],
+  },
+  {
+    title: 'Extensions & Treatments',
+    services: [
+      { name: 'Beaded Weft Extension Install', price: '$250', duration: '60 min', note: 'Three rows $325; free adjustments within 7 days' },
+      { name: 'Beaded Weft Mini Move Up', price: '$150', duration: '35 min', note: 'Four-week maintenance' },
+      { name: 'Brazilian Blowout', price: '$300', duration: '90 min', note: 'Lasts up to 12 weeks' },
+    ],
+  },
   {
     title: 'Lash Extensions',
     services: [
