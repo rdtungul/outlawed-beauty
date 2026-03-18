@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:elevenlabs.io)",
+      "Bash(cd \"E:/FREELANCE/NLC Global/NLCSites/beauty-inspo\" && npm run dev)",
+      "WebFetch(domain:unsplash.com)",
+      "WebSearch",
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(netstat -ano | grep \":300[0-9]\" | grep LISTENING 2>/dev/null || ss -tlnp | grep \":300[0-9]\" 2>/dev/null)",
+      "Bash(tasklist /FI \"PID eq 44044\" /FO LIST 2>/dev/null)",
+      "Bash(taskkill //F //IM node.exe 2>/dev/null; echo \"done\")",
+      "Bash(taskkill /F /IM node.exe 2>/dev/null; echo \"done\")",
+      "Bash(cd \"E:/FREELANCE/NLC Global/NLCSites/beauty-inspo\" && npm run build 2>&1)"
+    ]
+  }
+}
