@@ -20,7 +20,7 @@ export default function Nav() {
             alt="Outlawed on Main — Salon & Boutique"
             width={160}
             height={60}
-            className="h-12 w-auto object-contain"
+            className="h-14 w-auto object-contain"
             priority
           />
         </Link>
