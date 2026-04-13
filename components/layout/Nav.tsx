@@ -16,7 +16,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="hover:opacity-70 transition-opacity">
           <Image
-            src="/logo.jpg"
+            src="/logo.png"
             alt="Outlawed on Main — Salon & Boutique"
             width={160}
             height={60}
