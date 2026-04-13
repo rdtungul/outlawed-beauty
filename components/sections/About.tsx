@@ -10,8 +10,8 @@ export default function About() {
           {/* Image */}
           <div className="relative aspect-[3/4] rounded-2xl overflow-hidden">
             <Image
-              src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=800&q=80"
-              alt="Outlawed on Main — hair color and texture"
+              src="/rooted-photo.jpg"
+              alt="Outlawed on Main — Salon & Boutique interior"
               fill
               className="object-cover object-center"
               sizes="(max-width: 1024px) 100vw, 50vw"
