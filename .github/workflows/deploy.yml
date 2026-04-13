@@ -1,0 +1,59 @@
+name: Deploy to DigitalOcean
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js app
+        run: npm run build
+
+      - name: Deploy to Droplet
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DROPLET_IP }}
+          username: root
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            set -e
+            APP_DIR="/var/www/outlawed-beauty"
+
+            # Clone or pull latest code
+            if [ -d "$APP_DIR/.git" ]; then
+              cd $APP_DIR
+              git pull origin main
+            else
+              git clone https://github.com/support634/outlawed-beauty.git $APP_DIR
+              cd $APP_DIR
+            fi
+
+            # Install deps and build
+            npm ci --production=false
+            npm run build
+
+            # Start or restart with PM2
+            if pm2 list | grep -q "outlawed-beauty"; then
+              pm2 restart outlawed-beauty
+            else
+              pm2 start npm --name "outlawed-beauty" -- start -- -p 3000
+              pm2 save
+              pm2 startup systemd -u root --hp /root | tail -1 | bash
+            fi
+
+            echo "Deployment complete!"
